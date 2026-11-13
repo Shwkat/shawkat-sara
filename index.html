@@ -434,12 +434,20 @@ body.revealed .music-btn{display:flex}
   var env = document.getElementById("envelope");
   function reveal(){ document.body.classList.remove("locked"); document.body.classList.add("revealed"); }
   var music = document.getElementById("music"), musicBtn = document.getElementById("musicBtn");
+  var fadingIn = false;
   function playMusic(){
+    fadingIn = true; setTimeout(function(){ fadingIn = false; }, 2200);
     try { music.volume = 0; } catch(e){}
     var p = music.play();
     if (p && p.catch) p.catch(function(){ musicBtn.classList.add("muted"); });
     var v = 0, fade = setInterval(function(){ v = Math.min(1, v + .05); try { music.volume = v; } catch(e){} if (v >= 1) clearInterval(fade); }, 100);
   }
+  music.addEventListener("timeupdate", function(){
+    if (!music.duration || fadingIn) return;
+    var left = music.duration - music.currentTime, t = music.currentTime;
+    var v = left < 1.5 ? left / 1.5 : (t < 1 ? t : 1);
+    try { music.volume = Math.max(0, Math.min(1, v)); } catch(e){}
+  });
   musicBtn.addEventListener("click", function(){
     if (music.paused){ music.play(); musicBtn.classList.remove("muted"); }
     else { music.pause(); musicBtn.classList.add("muted"); }
