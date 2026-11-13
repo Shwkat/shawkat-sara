@@ -156,7 +156,9 @@ html[lang="ar"] .weekday{letter-spacing:0;font-size:21px}
 .bigdate .side{font:400 13px var(--caps);letter-spacing:.26em;text-transform:uppercase;min-width:92px;padding:8px 0;border-top:1px solid var(--gold-light);border-bottom:1px solid var(--gold-light)}
 html[lang="ar"] .bigdate .side{letter-spacing:0;font-size:20px;padding:4px 0}
 .bigdate .num{font:500 64px/1 "Cormorant Garamond",serif;color:var(--gold)}
-html[lang="ar"] .bigdate .num{font-family:"Amiri",serif;order:-1}
+html[lang="ar"] .bigdate{flex-wrap:wrap;row-gap:6px}
+html[lang="ar"] .bigdate .num{font-family:"Amiri",serif;order:-1;flex-basis:100%;font-size:60px;line-height:1.1}
+html[lang="ar"] .bigdate .side{min-width:96px}
 .time{font-size:21px;color:var(--ink)}
 .rule{display:flex;align-items:center;gap:10px;margin:24px auto;max-width:220px;color:var(--gold)}
 .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent)}
@@ -218,7 +220,7 @@ footer{text-align:center;padding:10px 0 34px;font:400 11px var(--caps);letter-sp
 <div class="lang" role="group" aria-label="Language">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 3 2.6 15 0 18M12 3c-2.6 3-2.6 15 0 18"/></svg>
   <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
-  <button type="button" class="ar" data-set-lang="ar" aria-pressed="false">ع</button>
+  <button type="button" class="ar" data-set-lang="ar" aria-pressed="false">العربية</button>
 </div>
 
 <!-- ============ ENVELOPE ============ -->
@@ -345,7 +347,7 @@ footer{text-align:center;padding:10px 0 34px;font:400 11px var(--caps);letter-sp
       docTitle:"Shawkat & Sara · Katb Ketab"
     },
     ar:{
-      invited:"أنتم مدعوون", who:"شوكت & سارة", ciKicker:"عقد قران", tap:"اضغط على الختم لفتح الدعوة",
+      invited:"نتشرف بدعوتكم", who:"شوكت & سارة", ciKicker:"عقد قران", tap:"اضغط على الختم لفتح الدعوة",
       kicker:"بكل الحب، تتشرف العائلتان بدعوتكم", kind:"لحضور عقد قران",
       groom:"شوكت", bride:"سارة", heroDay:"السبت", heroDate:"٥ ديسمبر ٢٠٢٦", heroTime:"الساعة ٢:٠٠ ظهرًا", scroll:"مرّر للأسفل",
       welcomeEyebrow:"بقلوب ملؤها الفرح",
